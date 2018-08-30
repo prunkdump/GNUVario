@@ -243,9 +243,8 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll-feed (~> 0.9)
-  jekyll-seo-tag (~> 2.1)
-  tzinfo-data
+  jekyll-feed (~> 0.10.0)
+  jekyll-seo-tag (~> 2.5.0)
 
 BUNDLED WITH
    1.16.4
