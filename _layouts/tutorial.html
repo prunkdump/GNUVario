@@ -1,0 +1,50 @@
+---
+layout: page
+---
+  <div class="tuto_summary">
+    <h2>Building tutorial summary</h2>
+    <ul>
+      <li>{% if page.description == "Introduction" %}<strong>{% endif %}<a href="{{ site.baseurl }}{% link hardware.md %}">Introduction</a>{% if page.description == "Introduction" %}</strong>{% endif %}</li>
+      {%- assign tuto_steps = site.tutorials | sort : 'step' -%}
+      {%- for tuto_step in tuto_steps -%}
+        {%- if forloop.first -%}
+          {%- assign first_step = tuto_step -%}
+        {%- endif -%}
+      
+        {%- if page.description == tuto_step.description -%}
+          {%- unless forloop.first -%}
+            {%- assign prev_step = tmpprev -%}
+          {%- endunless -%}
+          {%- unless forloop.last -%}
+            {%- assign next_step = tuto_steps[forloop.index] -%}
+          {%- endunless -%}
+          <li><strong><a href="{{ tuto_step.url }}">{{ tuto_step.description }}</a></strong></li>
+        {%- else -%}
+          <li><a href="{{ tuto_step.url }}">{{ tuto_step.description }}</a></li>
+        {%- endif -%}
+	{%- assign tmpprev = tuto_step -%}  
+      {%- endfor -%}
+    </ul>
+  </div>
+  
+  <div class="tutorial">
+    <h2>{{ page.description }}</h2>
+    {{ content }}
+  </div>
+
+  <div class="tuto_nav">
+      {%- if prev_step -%}
+      <a href="{{ prev_step.url }}" class="tuto_previous">< Previous</a>
+      {%- endif -%}
+      <a href="{{ site.baseurl }}{% link hardware.md %}" class="tuto_home">Home</a>
+      {%- if next_step -%}
+      <a href="{{ next_step.url }}" class="tuto_next">Next ></a>
+      {%- else -%}
+        {%- if page.description == "Introduction" -%}
+          <a href="{{ first_step.url }}" class="tuto_next">Next</a>
+        {%- endif -%}
+      {%- endif -%}  
+    </ul>
+    
+
+  </div>
