@@ -18,9 +18,9 @@ layout: page
           {%- unless forloop.last -%}
             {%- assign next_step = tuto_steps[forloop.index] -%}
           {%- endunless -%}
-          <li><strong><a href="{{ tuto_step.url }}">{{ tuto_step.description }}</a></strong></li>
+          <li><strong><a href="{{ tuto_step.url | relative_url }}">{{ tuto_step.description }}</a></strong></li>
         {%- else -%}
-          <li><a href="{{ tuto_step.url }}">{{ tuto_step.description }}</a></li>
+          <li><a href="{{ tuto_step.url | relative_url }}">{{ tuto_step.description }}</a></li>
         {%- endif -%}
 	{%- assign tmpprev = tuto_step -%}  
       {%- endfor -%}
@@ -34,14 +34,14 @@ layout: page
 
   <div class="tuto_nav">
       {%- if prev_step -%}
-      <a href="{{ prev_step.url }}" class="tuto_previous">< Previous</a>
+      <a href="{{ prev_step.url | relative_url }}" class="tuto_previous">< Previous</a>
       {%- endif -%}
       <a href="{{ site.baseurl }}{% link hardware.md %}" class="tuto_home">Home</a>
       {%- if next_step -%}
-      <a href="{{ next_step.url }}" class="tuto_next">Next ></a>
+      <a href="{{ next_step.url | relative_url }}" class="tuto_next">Next ></a>
       {%- else -%}
         {%- if page.description == "Introduction" -%}
-          <a href="{{ first_step.url }}" class="tuto_next">Next</a>
+          <a href="{{ first_step.url | relative_url }}" class="tuto_next">Next</a>
         {%- endif -%}
       {%- endif -%}  
     </ul>

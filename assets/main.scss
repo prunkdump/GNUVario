@@ -1,5 +1,5 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-
+$banner-url: url("{{ "/assets/banner.jpg" | relative_url }}") !default;
 @import "minima";

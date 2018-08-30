@@ -120,7 +120,7 @@
 }
 
 .site-banner {
-    background: url(/assets/banner.jpg);
+    background: $banner-url;
     background-size: cover;
     background-position: center; 
     text-align: center;
