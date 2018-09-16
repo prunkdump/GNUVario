@@ -36,7 +36,12 @@
     <p>{{ page.linkdesc | escape }}</p>
     {%- endif -%}
     {%- if page.linkmsg and page.linktarget -%}
-    <a href="{{ page.linktarget }}">{{ page.linkmsg }}</a>
+       {%- assign linktarget_first = page.linktarget | slice: 0 -%}
+       {%- if linktarget_first == "/" -%}
+          <a href="{{ page.linktarget | relative_url }}">{{ page.linkmsg }}</a>
+       {%- else -%}
+          <a href="{{ page.linktarget }}">{{ page.linkmsg }}</a>
+       {%- endif -%}
     {%- endif -%}
   </div>
   
