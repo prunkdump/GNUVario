@@ -11,22 +11,21 @@ First **always check the component's placement after soldering the first pin**. 
 {% include tutoimg.md name="stip1.JPG" %}
 {% include tutoimg.md name="stip2.JPG" %}
 
-2. Check the component's placement. If it's not good, heat the solder again while replacing it.
+2. Check the component's placement. If it seems not good, heat the solder again while replacing it.
 {% include tutoimg.md name="stip3.JPG" %}
 
-3. When the placement seems perfect you can solder the other pins.
+3. When the placement is perfect you can solder the other pins.
 {% include tutoimg.md name="stip4.JPG" %}
 
+Next **don't hesitate to heat the solder sufficiently**. The components used in this tutorial are not very temperature sensitive. And making good quality soldering is determinant. I advise soldering each pin in two steps :
 
-Next **don't hesitate to heat the solder sufficiently**. The components used in this tutorial are not very temperature sensitive and making good quality soldering is determinant. I advise soldering each pin in two steps :
+1. Apply just a little amount of solder to make contact between the two parts.
+2. Heat the solder again **at least 2 seconds** before applying the right amount of solder.
 
-1. Apply just a little amount of solder two make contact between the two parts
-2. Heat the solder again **at least 2 seconds** before applying the right amount of solder
-
-Pay particular attention to ground plane connections. Like this :
+Pay particular attention to ground plane connections like this :
 {% include tutoimg.md name="groundpin.JPEG" %}
-They are very difficult to heat due to the hight temperature dicipation. Don't hesitate to let the soldering iron until 10 seconds.
+They are very difficult to heat due to the high temperature dissipation. Don't hesitate to let the soldering iron until 10 seconds.
 
-Finally pay attention that **all the soldering in the center of the board need to be as flat as possible** to avoid damaging the LiPo battery placed just under the PCB :
+Finally pay attention that **all the soldering in the center of the board need to be as flat as possible**. This is needed to avoid damaging the LiPo battery placed just under the PCB :
 {% include tutoimg.md name="batterypcb.JPG" %}
 

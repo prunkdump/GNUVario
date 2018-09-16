@@ -3,11 +3,11 @@ step: 9
 description: Soldering backside components
 ---
 
-Take the 1M and the 270k resistors. And bend the tips as close as possible of the resistor's body.
+Take the 1M and the 270k resistors and bend the tips as close as possible of the resistor's body.
 {% include tutoimg.md name="IMG_6412.JPG" %}
 {% include tutoimg.md name="IMG_6413.JPG" %}
 
-You need to cut the pins just under the resistor's bottom. The pin need to be enough long to enter the PCB holes but not too much to not pass through the PCB.
+You need to cut the pins just under the resistor's bottom. The pins need to be long enough to enter the PCB holes but not too much to not pass through the PCB.
 {% include tutoimg.md name="IMG_6414.JPG" %}
 {% include tutoimg.md name="IMG_6415.JPG" %}
 {% include tutoimg.md name="IMG_6416.JPG" %}
