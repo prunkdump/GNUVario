@@ -6,12 +6,12 @@ linkmsg: Get it !
 linktarget: "/assets/schematic.pdf"
 ---
 
-This page explain how to assemble the GNUVario components on you own. If you use the GNUVario's PCB or the prebuilt kits you can go directly to the [Hardware]({{ site.baseurl }}{% link hardware.md %}) page.
+This page explain how to assemble the GNUVario components on you own. If you use the GNUVario's PCB or the pre-build kits you can go directly to the [Hardware]({{ site.baseurl }}{% link hardware.md %}) page.
 
 What you need :
 --------------
 
-Almost all components are optionnal unless the Arduino and the ms5611 boards. You can adjust to you needs. You just have to edit the libraries/VarioSettings/VarioSettings.h file and disable the component you don't have.
+Almost all components are optional unless the Arduino and the ms5611 boards. You can adjust to you needs. You just have to edit the *libraries/VarioSettings/VarioSettings.h* file and disable the components you don't have.
 
 For example if you only have the speaker, the screen and the voltage divisor, change the file like this :
 
@@ -27,6 +27,7 @@ For example if you only have the speaker, the screen and the voltage divisor, ch
 #define HAVE_VOLTAGE_DIVISOR
 {% endhighlight %}
 
+If you change the pins used to connect the components, don't forget to change the value also in *VarioSettings.h*.
 
 So you need or you can get :
 * An Arduino board (preferably 3.3v, see below)
@@ -38,7 +39,8 @@ So you need or you can get :
 * A GPS module
 * A SD card reader module
 * A Bluetooth module
-* A 270k and 1M resitors for the voltage divisor
+* A 270k and 1M resistors for the voltage divisor
+* A slide switch, a Lipo Battery and a LiPO charging board.
 
 
 Power design :
@@ -46,39 +48,39 @@ Power design :
 
 Choosing a proper power design for your GNUVario is a important part of the job. As there exist two types of Arduino boards (5v and 3.3v) and many types of batteries, there is many possible combinations. Each setup influence the overall current consumption and measure stability.
 
-The main thing you need to understand is that all the voltage regulators have some drop-off voltage. So if you buy a 5v Arduino board you need more than 5v for your power source. If your GPS module have a 3.3v regulator, you need to power it with more than 3.3v.
+The main thing you need to understand is that all the voltage regulators have some drop-off voltage. So if you get a 5v Arduino board you need more than 5v for your power source. If your GPS module have a 3.3v regulator, you need to power it with more than 3.3v.
 
-As nearly all the electronic components are now based on the 3.3v voltage, **I advice you use a 3.3v Arduino board**. This will reduce the power consumption and as a single cell LiPo batteries can deliver up to 4.2v you can use them directly.
+As nearly all the electronic components are now based on the 3.3v voltage, **I advice you use a 3.3v Arduino board**. This will reduce the power consumption and as single cell LiPo batteries can deliver up to 4.2v you can use them directly.
 
-Except the ms5611 screen that need a regulated 3.3v source, **all the component boards need a more than 3.3v power source**. This power source is labelled **RAW_V** on the schematics.
+Except the Nokia 5110 display that need a regulated 3.3v source, **all the component boards need a more than 3.3v power source**. This power source is labeled **RAW_V** on the schematics.
 
 
-### If you choose a 5v arduino
+### If you choose a 5v Arduino
 
-The single cells batteries deliver a maximum of 4.2v voltage. So you have three possibilities :
-* You buy a step-up 5v voltage regulator for your battaery and you connect the output to the Arduino's 5v pin.
+The single cell batteries deliver a maximum of 4.2v voltage. So you have three possibilities :
+* You buy a step-up 5v voltage regulator for your battery and you connect the output to the Arduino's 5v pin.
 * You buy a more than 5v step-up voltage regulator and you connect the output to the Arduino's RAW pin.
 * You put two LiPo batteries in parallel. But you need a special LiPo Charger.
 
-So for each setup you have now a 5v regulated power source on the Arduino's 5V pin. You can directly use this power source as the **RAW_V** power source to feed all the component boards.
+So for each setup you have now a 5v regulated power source on the Arduino's 5v pin. You can directly use this power source as the **RAW_V** power source to feed all the component boards.
 
-**!! Warning !!** If you power the Arduino board with the RAW pin, the power outputed by the 5v pin pass through the Arduino's regulator. This regulator can't feed directly the buzzer as it draw too much current. So **don't connect the buzzer direclty to the 5v pin**. You need to add a 120 ohms resistor or you need to power the buzzer with the battery using the L9110 amplifier (see below).
-
-
-Also The ms5611 screen need a 3.3v power source. So connect it to the 3.3v pin.
+**!! Warning !!** If you power the Arduino board with the RAW pin, the power outputted by the 5v pin pass through the Arduino's regulator. This regulator can't feed directly the buzzer as it draw too much current. So **don't connect the buzzer directly to the 5v pin or to some other Arduino pin**. You need to add a 120 ohms resistor or you need to power the buzzer with the battery using the L9110 amplifier (see below).
 
 
-### If you choose a 3.3v arduino
+Also The 5110 display need a 3.3v power source. So connect it to the Arduino's 3.3v pin.
+
+
+### If you choose a 3.3v Arduino
 
 You can connect directly the LiPo battery to the RAW pin as it deliver up to 4.2v. But you can't power the component boards with the regulated 3.3v output because each boards already have a 3.3v regulator that need a more than 3.3v power source.
 
-So you need to power all the boards unless the ms5611 screen directly with the battery output. This is your **RAW_V** power source. Connect all the component boards to the **RAW** pin.
+So you need to power all the boards, except the 5110 display, directly with the battery output. This is your **RAW_V** power source. Connect all the component boards to the **RAW** pin.
 
 
 Variometer's wiring :
 ---------------------
 
-You have now your **RAW_V** power source that deliver more than 3.3v and a regulated **3.3v** power source. You can now connect all the components following this [schematic]( {{"/assets/schematic.pdf" | absolute_url }} ) or the table below. **Be carefull** the pin numbers are only valid for the Arduino based on the Atmega328(P) chip. 
+You have now your **RAW_V** power source that deliver more than 3.3v and a regulated **3.3v** power source. You can now connect all the components following this [schematic]( {{"/assets/schematic.pdf" | absolute_url }} ) or the tables below. **Be careful** the pin numbers are only valid for the Arduino boards based on the Atmega328(P) chip. 
 
 
 **The ms5611 and MPU9250 board**

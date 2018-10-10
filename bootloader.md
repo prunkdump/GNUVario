@@ -8,6 +8,8 @@ linktarget: "/assets/optiboot_atmega328_pro_8MHz.hex"
 
 The GNUVario can use a special bootloader that load firmwares from the SD card. This avoid opening the variometer each time you want to update the code.
 
+**Warning !** You need a FAT16 formatted SD card. Check the [configuration]({{ site.baseurl }}{% link configuration.md %}) procedure.
+
 Flashing the firmware using the bootloader
 -----------------------------------------
 

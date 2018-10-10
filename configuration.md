@@ -7,17 +7,17 @@ Before configuring the variometer you need to know how to [compile the code]({{ 
 
 All the variometer configuration is done by editing the [libraries/VarioSettings/VarioSetting.h](https://github.com/prunkdump/arduino-variometer/blob/master/libraries/VarioSettings/VarioSettings.h) file inside your Arduino folder. If you don't have an editor adapted to writing code you can download [Notepad++](https://notepad-plus-plus.org/).
 
-Start by checking the file. There is two parts : one part concern the **software** configuration and one part the **hardware** configuration. Each option is documented by some comments directly inside this file, read them carrefully.
+Start by checking the file. There is two parts : one part concern the **software** configuration and one part the **hardware** configuration. Each option is documented by some comments directly inside this file, read them carefully.
 
-To "comments" a line put "//" at the start. This disable the option.
+To "comment" a line put "//" at the start. This disable the option.
 
 
 1) Checking the Hardware configuration
 --------------------------------------
 
-Before starting to setup the software you need to **make sure that the hardware configuration correspond to your setup**. You can find some tips in the [Schematics]({{ site.baseurl }}{% link schematics.md %}) page.
+Before starting to setup the software you need to **make sure that the hardware configuration correspond to your setup**. You can find some tips in the [Schematics]({{ site.baseurl }}{% link schematics.md %}) page for the base configuration.
 
-If you use a prebuild kit, here the parameters you need to change.
+If you use a pre-build kit, here the parameters you need to change.
 
 **GNUVario V2**
 
@@ -45,11 +45,11 @@ If your GNUVario have an SD card reader you can prepare you SD card now.
 
 **If the GNUVario's bootloader is installed on your variometer you need to complete this step** to be able to flash the firmware with the FIRM.HEX files created following the [compilation]({{ site.baseurl }}{% link code.md %}) page. You also need to know the [flashing procedure]({{ site.baseurl }}{% link bootloader.md %}).
 
-The SD card need to be formated with a FAT16 partition of less than 2Go. Here how to do this.
+The SD card need to be formatted with a FAT16 partition of less than 2Go. Here how to do this.
 
 ### On windows or Mac
 
-Download and install [Etcher](https://etcher.io/). With this program upload this [binary image]( {{"/assets/sdcard_fat16.zip" | absolute_url }} ) on you SD card.
+Download and install [Etcher](https://etcher.io/). With this program upload this [binary image]( {{"/assets/sdcard_fat16.zip" | absolute_url }} ) on your SD card.
 
 You **don't need to extract the zip**. Give the image directly to Etcher.
 
@@ -59,7 +59,7 @@ You **don't need to extract the zip**. Give the image directly to Etcher.
 
 Locate the device corresponding to you SD card inside the "/dev" folder. For example, say "/dev/sdc". You can plug and remove the SD card to be sure.
 
-With *fdisk* as root (use *sudo* if needed) create a 1.5Go partition :
+With *fdisk*, as root (use *sudo* if needed), create a 1.5Go partition :
 
 {% highlight shell_session %}
 ~# fdisk /dev/sdc
@@ -109,31 +109,37 @@ And format the partition with *mkfs.vfat*
 ~# mkfs.vfat -F16 /dev/sdc1
 {% endhighlight %}
 
-3) Save you personnal informations 
-----------------------------------
+3) Save you personal data 
+--------------------------
 
-There is some particular settings that need to stored inside the Arduino memory. These settings are your personnals informations. You need to make this step **just one time**. These settings can't be deleted just by flashing the variometer. You need to use a special sketch.
+There is some particular settings that need to be stored inside the Arduino memory. These settings are your personal data. You need to make this step **just one time**. These settings can't be deleted just by flashing the variometer. You need to use a special sketch.
 
 So in *VarioSettings.h* set your **Pilot name** and **Glider name**.
 
-Open the *SetVarioParameters* sketch. Compile and upload it inside you variometer.
+Open the *SetVarioParameters* sketch. Compile and upload it inside your variometer.
 
-When you power ON the variometer, wait for three high beeps. This signal that you personnal settings are stored in the Arduino memory. You're done for this step.
+When you power ON the variometer, wait for three high beeps. This signal that you personal settings are now stored in the Arduino memory. You're done for this step.
 
 4) If needed calibrate the accelerometer
 ----------------------------------------
 
 If you embed an accelerometer you need to calibrate it.
 
-First on Windows or Mac install [Python version 2](https://www.python.org/). On Windows be sure to check the option **add to PATH variable**.
+First on Windows or Mac install [Python version 2](https://www.python.org/). On Windows be sure to check the option **add to PATH variable** during the setup.
 
-Next compile and upload the **calibration_recorder** sketch. Be sure your SD card is inside the variometer. And follow this procedure :
+On Windows an Mac you need to install *NumPy*. So start a terminal : On Windows by typing "*cmd*" on your start menu, on Mac by running "*Terminal*" in "*Aplications/Utilities*". Once you see the terminal type the following command :
+
+{% highlight shell_session %}
+~$ pip install numpy
+{% endhighlight %}
+
+Next compile and upload the **calibration_recorder** sketch. Be sure your SD card is inside the variometer and follow this procedure :
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6yxoZcxxzVY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 This will create a "RECORD**.IGC" file on the SD card. Copy this file inside the "best-fit-calibration" folder and if needed rename it as "RECORD00.IGC".
 
-On Windows or Mac launch the **Idle** program and open the "best-fit-calibration/calibrate.py" program. Press "F5" to run.
+On Windows or Mac launch the **Idle** editor and open the "best-fit-calibration/calibrate.py" program. Press "F5" to run.
 
 On Linux just run :
 
@@ -149,7 +155,7 @@ This will show the parameters you need to replace in your *VarioSettings.h* file
 
 You can now set all the parameters you want in *VarioSettings.h*. To apply your configuration you just need to compile and upload the *Variometer* sketch.
 
-**It's NOT needed to run set SetVarioParameters sketch again !**
+**It's NOT needed to run the SetVarioParameters sketch again !**
 
 This sketch is only needed if you change the **Pilot name** or the **Glider name**.
 

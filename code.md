@@ -6,7 +6,7 @@ linkmsg: Get it !
 linktarget: "https://github.com/prunkdump/arduino-variometer"
 ---
 
-To compile the GNUVario source code you need the Arduino IDE that can be downloaded [here](https://www.arduino.cc/en/Main/Software). First install it and make sure you can lauch the editor.
+To compile the GNUVario source code you need the Arduino IDE that can be downloaded [here](https://www.arduino.cc/en/Main/Software). First install it and make sure you can launch the editor.
 
 Next you can get the GNUVario source code.
 
