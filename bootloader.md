@@ -65,7 +65,7 @@ On the lower panel of the Arduino IDE search inside the upload code for a comman
 
 Look at the path of this file and find it on your computer.
 
-Replace the file with the [GNUVario's bootloader]( {{"/assets/optiboot_atmega328_pro_8MHz.hex" |  | absolute_url }} ). **Keep the same file name as the original Arduino bootloader !**
+Replace the file with the [GNUVario's bootloader]( {{"/assets/optiboot_atmega328_pro_8MHz.hex" | absolute_url }} ). **Keep the same file name as the original Arduino bootloader !**
 
 Now redo the bootloader burning procedure. You're done.
 
