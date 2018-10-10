@@ -7,6 +7,8 @@ linktarget: "https://github.com/prunkdump/arduino-variometer"
 ---
 The GNUVario project is a collaborative effort to built an open source and open hardware variometer.
 
+If you need help, register on [GitHub](https://github.com/prunkdump/arduino-variometer) and use the email address given on the profile page or add an issue on the project.
+
 Features :
 ---------
 * High precision altitude with improved ms5611 code
