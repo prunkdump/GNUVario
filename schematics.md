@@ -122,9 +122,9 @@ You have now your **RAW_V** power source that deliver more than 3.3v and a regul
 | :--------------: | :-----------------------------------: |
 |       SCK        |    SCK (D13)                          |
 |     DIN/MOSI     |    MOSI (D11)                         |
-|       DC         | Set in VarioSettings.h ( default D4 ) |
-|       CS         | Set in VarioSettings.h ( default D3 ) |
-|       RST        | Set in VarioSettings.h ( default D2 ) |
+|       DC         | Set in VarioSettings.h ( default D6 ) |
+|       CS         | Set in VarioSettings.h ( default D7 ) |
+|       RST        | Set in VarioSettings.h ( default D8 ) |
 |       VCC        |    Regulated 3.3v                     |
 |       GND        |      GND                              |
 
